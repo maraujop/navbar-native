@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { ListView, ScrollView, View, Text, Dimensions } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import Spinner from 'react-native-spinkit';
 import Navbar from './navbar';
 import styles from '../styles';
 import { color, size } from '../utils';
@@ -37,6 +36,7 @@ export default class Container extends Component {
 
     renderLoading() {
         if (this.props.loading) {
+            const Spinner = require('react-native-spinkit');
             return (
                 <View key="loading" style={[
                     styles.loadingContainer.view,
