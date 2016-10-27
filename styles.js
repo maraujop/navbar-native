@@ -18,7 +18,6 @@ export default navbarStyles = {
     },
     navBarContainer: {
         position: 'relative',
-        zIndex: 1,
     },
     statusBar: {
         height: size.statusBarHeight,
