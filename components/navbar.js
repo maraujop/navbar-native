@@ -289,8 +289,16 @@ export default class Navbar extends Component {
     }
 
     render() {
-        const renderTitle = isIOS() ? this.renderTitle() : null;
         const bgColor = { backgroundColor: this.props.bgColor ? this.props.bgColor : theme[this.theme].bgNavbarColor };
+        let renderTitle = isIOS() ? this.renderTitle() : null;
+        if (
+            this.props.showTitleInAndroid &&
+            !iOS() &&
+            !(Array.isArray(this.props.left) || typeof this.props.left === 'object')
+        ) {
+            renderTitle = this.renderTitle();
+        }
+
         return (
             <View style={[styles.navBarContainer, bgColor]}>
                 {this.renderStatusBar()}
@@ -370,6 +378,7 @@ Navbar.propTypes = {
     bgColor: PropTypes.string,
     image: PropTypes.shape(Navbar.imagePropTypes),
     imageBackground: PropTypes.shape(Navbar.imagePropTypes),
+    showTitleInAndroid: PropTypes.bool,
     statusBar: PropTypes.shape(Navbar.statusBarShape),
     left: PropTypes.oneOfType([
         buttonShape,
