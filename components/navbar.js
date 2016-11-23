@@ -304,9 +304,10 @@ export default class Navbar extends Component {
                 {this.renderStatusBar()}
                 {this.renderBackgroundImage()}
                 <View style={[styles.navBar, this.props.style]}>
+                  { typeof this.props.title === 'string' ? renderTitle : null }
                     <View style={[styles.navBarButtonContainer, this._manageJustifyContentContainer()]}>
                         {this.renderLeftButton()}
-                        {renderTitle}
+                        { typeof this.props.title !== 'string' ? renderTitle : null }
                         {this.renderRightButton()}
                     </View>
                 </View>
