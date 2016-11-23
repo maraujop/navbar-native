@@ -304,9 +304,9 @@ export default class Navbar extends Component {
                 {this.renderStatusBar()}
                 {this.renderBackgroundImage()}
                 <View style={[styles.navBar, this.props.style]}>
-                    {renderTitle}
                     <View style={[styles.navBarButtonContainer, this._manageJustifyContentContainer()]}>
                         {this.renderLeftButton()}
+                        {renderTitle}
                         {this.renderRightButton()}
                     </View>
                 </View>
